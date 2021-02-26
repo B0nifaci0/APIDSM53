@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class CategoryController extends Controller
+class ControllerCategory extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        //
+        //para llamar todas nuestra categorias select * from categories ;
+        $categories = Category::all();
+        return response()->json(['categorias' => $categories]);
     }
 
     /**
@@ -44,9 +46,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(ControllerCategory $category ,$id)
     {
-        //
+         //select * fromm categories as c where c.id =
+        return Category::findOrfail($id);       
+        //return response()->json(['categoria' => $category]);
     }
 
     /**

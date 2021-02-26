@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 /* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });  */
+// declaramos nuestros controladores antes de acceder a ellos 
+
+ //use App\Http\Controllers\ControllerCategory;
 
 //Rutas De categorias
-Route::apiResource('category','ControllerCategory');
+//Route::apiResource('categories','ControllerCategory');
+Route::apiResource('categories','ControllerCategory');
+//Route::get('category/{id}','CategoryController@show');
+ 

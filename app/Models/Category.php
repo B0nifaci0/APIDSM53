@@ -16,4 +16,9 @@ class Category extends Model
         'descrption',
         'image'
     ];
+
+    //nuestras relaciones una categoria tiene uno o muchos post
+    public function Post(){
+        return $this->belongsTo(Post::class);
+    } 
 }
