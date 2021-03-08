@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,6 +18,7 @@ class PostController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +47,13 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(PostController $post, $id)
     {
         //
+        $post = Post::findOrfail($id);
+        return response()->json(['post' => $post]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -81,5 +87,28 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+//endpoint de slider 10 post 
+    public function sliderPost(){
+        $posts = Post::all()->take(10);
+        return response()->json(['Posts' => $posts]);
+    }
+
+
+//retorna los 3 post de la cada categoria 
+    public function CategoryPost($id)
+    {
+        //obtenemos la categoria
+      $category = Category::findOrfail($id);
+      //consulta posts 
+      $posts = Post::where('category_id', $category->id)
+      ->latest('id')
+      ->get();
+      return response()->json([
+          'categoria' => $category,
+          'articulo'  => $posts
+      ]);
+
     }
 }

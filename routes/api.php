@@ -26,3 +26,9 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('categories','ControllerCategory');
 //Route::get('category/{id}','CategoryController@show');
  
+//slider
+Route::get('posthome','PostController@sliderPost');
+
+//Post
+Route::get('categoryPost','PostController@CategoryPost');
+Route::apiResource('posts','PostController');

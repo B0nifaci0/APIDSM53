@@ -46,7 +46,7 @@ class CategoriasController extends Controller
      * @param  \App\Models\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function show(categorias $categorias)
+    public function show( $categorias)
     {
         //
     }
