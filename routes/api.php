@@ -30,5 +30,5 @@ Route::apiResource('categories','ControllerCategory');
 Route::get('posthome','PostController@sliderPost');
 
 //Post
-Route::get('categoryPost','PostController@CategoryPost');
+Route::get('categoryPost/{id}','PostController@CategoryPost');
 Route::apiResource('posts','PostController');

@@ -96,7 +96,7 @@ class PostController extends Controller
     }
 
 
-//retorna los 3 post de la cada categoria 
+//retorna todos los post de cada categoria
     public function CategoryPost($id)
     {
         //obtenemos la categoria
